@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Choco Sapphire</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+</head>
+<body>
+  <div class="bg-animation">
+    <div class="bg-overlay"></div>
+    <div class="fountain-glow"></div>
+    <div class="fountain-stream"></div>
+    <div class="fountain-stream inner"></div>
+    <div class="pool"></div>
+    <div class="blob blob-left"></div>
+    <div class="blob blob-right"></div>
+    <div class="light light-left"></div>
+    <div class="light light-right"></div>
+  </div>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+      <div>
+        <p class="brand-top">Luxury Chocolate House</p>
+        <h1 class="brand-name">Choco Sapphire</h1>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#about">About</a>
+      </nav>
+
+      <div class="top-actions">
+        <a class="contact-btn call-btn" href="tel:+8801712345678">Call Now</a>
+        <a class="contact-btn whatsapp-btn" href="https://wa.me/8801712345678" target="_blank">WhatsApp</a>
+        <button class="cart-pill" id="cartButton">
+          Cart <span id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero container" id="home">
+    <div class="hero-left">
+      <p class="badge">Handcrafted • Premium • Elegant</p>
+      <h2>Premium chocolates with a rich luxury experience.</h2>
+      <p class="hero-text">
+        Discover classic, premium, and luxurious chocolate collections with elegant presentation and smooth shopping.
+      </p>
+
+      <div class="hero-contact-row">
+        <a class="hero-contact-btn call-btn" href="tel:+8801712345678">Call for Order</a>
+        <a class="hero-contact-btn whatsapp-btn" href="https://wa.me/8801712345678" target="_blank">WhatsApp Order</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <img src="images/hero-chocolate.jpg" alt="Luxury Chocolate" />
+    </div>
+  </section>
+
+  <main class="container" id="shop">
+    <section class="section-gap">
+      <div class="section-head">
+        <div>
+          <p class="section-label">Classic Collection</p>
+          <h2>Everyday elegant chocolates</h2>
+        </div>
+        <p class="section-sub">Timeless favorites with smooth taste and a premium look.</p>
+      </div>
+      <div class="product-grid" id="classicProducts"></div>
+    </section>
+
+    <section class="section-gap">
+      <div class="section-head">
+        <div>
+          <p class="section-label">Premium Collection</p>
+          <h2>Refined signature chocolates</h2>
+        </div>
+        <p class="section-sub">Rich textures, deeper cocoa notes, and a premium finish.</p>
+      </div>
+      <div class="product-grid" id="premiumProducts"></div>
+    </section>
+
+    <section class="section-gap">
+      <div class="section-head">
+        <div>
+          <p class="section-label">Luxurious Collection</p>
+          <h2>Luxury gifting and celebration boxes</h2>
+        </div>
+        <p class="section-sub">Crafted for unforgettable gifting, celebrations, and high-end indulgence.</p>
+      </div>
+      <div class="product-grid" id="luxuriousProducts"></div>
+    </section>
+
+    <section class="about-box" id="about">
+      <p class="section-label">Why Choco Sapphire</p>
+      <h2>Premium chocolate made for elegance and gifting.</h2>
+      <p class="section-sub">
+        Add products to cart, fill delivery information, and confirm the order. The order can be emailed to the owner instantly and customers can also call or message on WhatsApp.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © 2026 Choco Sapphire — crafted for refined taste.
+    </div>
+  </footer>
+
+  <div class="drawer-overlay hidden" id="drawerOverlay">
+    <aside class="cart-drawer" id="cartDrawer">
+      <div class="drawer-header">
+        <h3>Your Cart</h3>
+        <button id="closeCart">✕</button>
+      </div>
+
+      <div class="drawer-body" id="cartItems"></div>
+
+      <div class="drawer-footer">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="subtotal">৳0</span>
+        </div>
+        <div class="summary-row">
+          <span>Delivery</span>
+          <span id="delivery">৳0</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total</span>
+          <span id="total">৳0</span>
+        </div>
+
+        <button class="checkout-btn" id="checkoutBtn">Proceed to Order Form</button>
+      </div>
+    </aside>
+  </div>
+
+  <div class="modal-overlay hidden" id="checkoutModal">
+    <div class="checkout-modal">
+      <div class="drawer-header">
+        <h3>Delivery Information</h3>
+        <button id="closeCheckout">✕</button>
+      </div>
+
+      <form class="checkout-form" id="orderForm">
+        <input type="text" id="fullName" placeholder="Full Name" required />
+        <input type="text" id="phone" placeholder="Phone Number" required />
+
+        <select id="deliveryZone" required>
+          <option value="">Select Delivery Area</option>
+          <option value="inside">Inside Dhaka</option>
+          <option value="outside">Outside Dhaka</option>
+        </select>
+
+        <input type="text" id="area" placeholder="Area / City" />
+        <textarea id="address" rows="3" placeholder="Full Delivery Address" required></textarea>
+        <textarea id="note" rows="2" placeholder="Extra Note (optional)"></textarea>
+
+        <div class="order-mini-summary">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="formSubtotal">৳0</span>
+          </div>
+          <div class="summary-row">
+            <span>Delivery</span>
+            <span id="formDelivery">৳0</span>
+          </div>
+          <div class="summary-row total">
+            <span>Total</span>
+            <span id="formTotal">৳0</span>
+          </div>
+        </div>
+
+        <button type="submit" class="checkout-btn full-btn">Confirm Order</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="products.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
